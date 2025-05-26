@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+
 function Dashboard() {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
     try {
-      const response = await fetch("https://taskmanagement-9l47.onrender.com/api/show_Task");
+      const response = await fetch("${BASE_URL}/api/show_Task");
       const data = await response.json();
       if (data.status && data.data) {
         setTasks(data.data);
