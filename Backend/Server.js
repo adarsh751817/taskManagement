@@ -35,6 +35,9 @@ const router = require('./Router/taskRouter');
 
 const PORT = process.env.PORT || 8080;
 
+app.options('*', cors());
+
+
 dotenv.config(); 
 const app = express();
 app.use(cors({
