@@ -9,7 +9,10 @@ const router = require('./Router/taskRouter')
 
 const app = express();
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+  origin: 'https://taskmanagement-1-0p4k.onrender.com',
+  credentials: true,
+}));
 dotenv.config();
 connectDB();
 
