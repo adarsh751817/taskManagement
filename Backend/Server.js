@@ -33,11 +33,10 @@ const cors = require('cors');
 const connectDB = require('./db/taskDb');
 const router = require('./Router/taskRouter');
 
+const PORT = process.env.PORT || 8080;
+
 dotenv.config(); 
-
 const app = express();
-
-
 app.use(cors({
   origin: 'https://taskmanagement-1-0p4k.onrender.com',
   credentials: true,
@@ -47,10 +46,7 @@ app.use(express.json());
 
 connectDB(); 
 
-
 app.use('/api', router);
-
-const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
   console.log(`The server is listening on port ${PORT}`);
