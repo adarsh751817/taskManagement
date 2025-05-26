@@ -3,6 +3,9 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+
 function Alltasks() {
   const [allTasks, setAllTasks] = useState([]);
   const [message, setMessage] = useState("");
@@ -12,7 +15,7 @@ function Alltasks() {
 
   const showAllTask = async () => {
     try {
-      const response = await fetch("https://taskmanagement-9l47.onrender.com/api/show_Task");
+      const response = await fetch("${BASE_URL}/api/show_Task");
       const data = await response.json();
       if (data.status && data.data) {
         setAllTasks(data.data);
@@ -25,7 +28,7 @@ function Alltasks() {
   const deleteHandler = async (taskId) => {
     try {
       const response = await fetch(
-        `https://taskmanagement-9l47.onrender.com/api/delete_Task/${taskId}`,
+        `${BASE_URL}/api/delete_Task/${taskId}`,
         { method: "DELETE" }
       );
       const data = await response.json();
@@ -50,7 +53,7 @@ function Alltasks() {
   const handleEditSave = async () => {
     try {
       const response = await fetch(
-        `https://taskmanagement-9l47.onrender.com/api/update_Task/${editingTask._id}`,
+        `${BASE_URL}/api/update_Task/${editingTask._id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -72,7 +75,7 @@ function Alltasks() {
     try {
       const updated = { ...task, completed: !task.completed };
       const response = await fetch(
-        `https://taskmanagement-9l47.onrender.com/api/update_Task/${task._id}`,
+        `${BASE_URL}/api/update_Task/${task._id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
