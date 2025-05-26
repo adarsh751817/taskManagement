@@ -28,30 +28,36 @@
 
 
 const express = require('express');
-const dotenv = require('dotenv');
 const cors = require('cors');
+const dotenv = require('dotenv');
 const connectDB = require('./db/taskDb');
 const router = require('./Router/taskRouter');
 
-const PORT = process.env.PORT || 8080;
-
-app.options('*', cors());
-
-
-dotenv.config(); 
+dotenv.config();
 const app = express();
+
+// ✅ Allow CORS from your frontend origin
 app.use(cors({
   origin: 'https://taskmanagement-1-0p4k.onrender.com',
   credentials: true,
 }));
 
-app.use(express.json()); 
+// ✅ Handle preflight requests
+app.options('*', cors());
 
-connectDB(); 
+// ✅ Other middlewares
+app.use(express.json());
 
+// ✅ Connect DB
+connectDB();
+
+// ✅ Routes
 app.use('/api', router);
 
+// ✅ Start server
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`The server is listening on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
+
 
