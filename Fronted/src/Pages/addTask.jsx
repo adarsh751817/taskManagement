@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { z } from "zod";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 // Zod schema
 const taskSchema = z.object({
@@ -26,7 +28,7 @@ function Addtask() {
     try {
       const validatedData = taskSchema.parse({ title, description });
 
-      const response = await fetch("https://taskmanagement-9l47.onrender.com/api/create_Task", {
+      const response = await fetch("${BASE_URL}/api/create_Task", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
