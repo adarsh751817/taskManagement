@@ -12,7 +12,6 @@ const taskSchema = new Schema({
     },
     status: {
         type: String,
-        required: true,
         default: "Pending",
         enum: ['Pending', 'Running', 'Completed', 'Failed']
     }
@@ -21,3 +20,5 @@ const taskSchema = new Schema({
 const taskModel = new mongoose.model('task', taskSchema)
 
 module.exports = taskModel;
+
+
