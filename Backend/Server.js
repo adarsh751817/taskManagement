@@ -13,6 +13,13 @@ app.use(cors())
 dotenv.config();
 connectDB();
 
+const FRONTEND_URL = 'https://taskmanagement-1-vlq0.onrender.com';
+
+app.use(cors({
+  origin: FRONTEND_URL,  
+  credentials: true      
+}));
+
 const PORT = process.env.PORT || 8080;
 
 app.use('/api', router);
