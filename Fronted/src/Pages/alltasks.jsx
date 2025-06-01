@@ -12,7 +12,7 @@ function Alltasks() {
 
   const showAllTask = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/show_Task");
+      const response = await fetch("https://taskmanagement-x509.onrender.com/api/show_Task");
       const data = await response.json();
       if (data.status && data.data) {
         setAllTasks(data.data);
@@ -25,7 +25,7 @@ function Alltasks() {
   const deleteHandler = async (taskId) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/delete_Task/${taskId}`,
+        `https://taskmanagement-x509.onrender.com/api/delete_Task/${taskId}`,
         { method: "DELETE" }
       );
       const data = await response.json();
@@ -50,7 +50,7 @@ function Alltasks() {
   const handleEditSave = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/update_Task/${editingTask._id}`,
+        `https://taskmanagement-x509.onrender.com/api/update_Task/${editingTask._id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -72,7 +72,7 @@ function Alltasks() {
     try {
       const updated = { ...task, completed: !task.completed };
       const response = await fetch(
-        `http://localhost:3000/api/update_Task/${task._id}`,
+        `https://taskmanagement-x509.onrender.com/api/update_Task/${task._id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
