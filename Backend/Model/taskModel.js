@@ -1,5 +1,5 @@
-const   {mongoose, Schema }  = require('mongoose')
-// const mongoose = require('mongoose')
+const   {mongoose }  = require('mongoose')
+const { Schema } = mongoose;
 
 const taskSchema = new Schema({
     title: {
