@@ -26,7 +26,7 @@ function Addtask() {
     try {
       const validatedData = taskSchema.parse({ title, description });
 
-      const response = await fetch("http://localhost:3000/api/create_task", {
+      const response = await fetch("https://taskmanagement-x509.onrender.com/api/create_task", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
