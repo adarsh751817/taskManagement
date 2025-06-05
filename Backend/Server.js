@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./db/taskDb')
 const cors = require('cors')
-
+const authrouter = require('./Router/authrouter')
 const router = require('./Router/taskRouter')
 
 
@@ -16,6 +16,8 @@ connectDB();
 const PORT = process.env.PORT || 8080;
 
 app.use('/api', router);
+app.use('/api/auth', authrouter);
+
 
 
 app.listen(PORT, () => {
