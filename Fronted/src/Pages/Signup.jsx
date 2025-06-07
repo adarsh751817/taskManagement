@@ -18,7 +18,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/auth/signup', form);
+      await axios.post('https://taskmanagement-x509.onrender.com/api/auth/signup', form);
       setSuccess('🎉 Signup successful!');
       setForm({ name: '', email: '', password: '' });
 
