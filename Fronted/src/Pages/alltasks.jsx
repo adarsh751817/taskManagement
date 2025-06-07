@@ -12,7 +12,7 @@ function Alltasks() {
 
   const showAllTask = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/show_Task");
+      const response = await fetch("https://taskmanagement-x509.onrender.com/api/show_Task");
       const data = await response.json();
       if (data.status && data.data) {
         setAllTasks(data.data);
