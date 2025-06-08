@@ -11,26 +11,26 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
 
-  const isLoggedIn = !!localStorage.getItem('token');
+  // const isLoggedIn = !!localStorage.getItem('token');
 
 
   const toggleMenu = () => setIsOpen(prev => !prev);
 
-  const navLinks = [
-    { name: 'Dashboard', path: '/dashboard', isPublic: true },
-    { name: 'AddTask', path: '/addtask', isPublic: false },
-    { name: 'AllTasks', path: '/alltasks', isPublic: false },
-    { name: 'AboutUs', path: '/aboutus', isPublic: false },
-    { name: 'Login', path: '/login', isPublic: true },
-    { name: 'Signup', path: '/signup', isPublic: true },
-  ];
+  // const navLinks = [
+  //   { name: 'Dashboard', path: '/dashboard', isPublic: true },
+  //   { name: 'AddTask', path: '/addtask', isPublic: false },
+  //   { name: 'AllTasks', path: '/alltasks', isPublic: false },
+  //   { name: 'AboutUs', path: '/aboutus', isPublic: false },
+  //   { name: 'Login', path: '/login', isPublic: true },
+  //   { name: 'Signup', path: '/signup', isPublic: true },
+  // ];
 
-  const handleProtectedClick = (e, link) => {
-    if (!isLoggedIn && !link.isPublic) {
-      e.preventDefault();
-      alert('🔒 Please log in or sign up to access this feature.');
-    }
-  };
+  // const handleProtectedClick = (e, link) => {
+  //   if (!isLoggedIn && !link.isPublic) {
+  //     e.preventDefault();
+  //     alert('🔒 Please log in or sign up to access this feature.');
+  //   }
+  // };
 
     const isLoggedIn = !!localStorage.getItem('token');
 
@@ -56,44 +56,44 @@ const Header = () => {
         navigate('/login');
     };
 
-    return (
-        <header className="bg-white shadow-md px-6 py-4 flex items-center justify-between relative z-50">
-            {/* Logo */}
-            <div
-                className="text-2xl font-bold text-indigo-600 cursor-pointer"
-                onClick={() => navigate('/dashboard')}
-            >
-                TaskMaster
-            </div>
+//     return (
+//         <header className="bg-white shadow-md px-6 py-4 flex items-center justify-between relative z-50">
+//             {/* Logo */}
+//             <div
+//                 className="text-2xl font-bold text-indigo-600 cursor-pointer"
+//                 onClick={() => navigate('/dashboard')}
+//             >
+//                 TaskMaster
+//             </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex gap-8 text-gray-700 font-medium">
-                {navLinks.map(link => (
-                    <Link
-                        key={link.name}
-                        to={link.path}
-                        onClick={(e) => handleProtectedClick(e, link)}
-                        className={`transition-colors hover:text-indigo-500 ${!isLoggedIn && !link.isPublic ? 'text-gray-400 cursor-not-allowed' : ''}`}
-                    >
-                        {link.name}
-                    </Link>
-                ))}
-                {isLoggedIn && (
-                    <button
-                        onClick={handleLogout}
-                        className="text-red-600 hover:text-red-800 transition font-semibold"
-                    >
-                        Logout
-                    </button>
-                )}
-            </nav>
->
+//             {/* Desktop Navigation */}
+//             <nav className="hidden md:flex gap-8 text-gray-700 font-medium">
+//                 {navLinks.map(link => (
+//                     <Link
+//                         key={link.name}
+//                         to={link.path}
+//                         onClick={(e) => handleProtectedClick(e, link)}
+//                         className={`transition-colors hover:text-indigo-500 ${!isLoggedIn && !link.isPublic ? 'text-gray-400 cursor-not-allowed' : ''}`}
+//                     >
+//                         {link.name}
+//                     </Link>
+//                 ))}
+//                 {isLoggedIn && (
+//                     <button
+//                         onClick={handleLogout}
+//                         className="text-red-600 hover:text-red-800 transition font-semibold"
+//                     >
+//                         Logout
+//                     </button>
+//                 )}
+//             </nav>
+// >
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    alert('👋 You have been logged out!');
-    navigate('/login');
-  };
+//   const handleLogout = () => {
+//     localStorage.removeItem('token');
+//     alert('👋 You have been logged out!');
+//     navigate('/login');
+//   };
 
 
   return (
