@@ -26,6 +26,7 @@ function Addtask() {
     try {
       const validatedData = taskSchema.parse({ title, description });
 
+<<<<<<< HEAD
       // const response = await fetch("https://taskmanagement-x509.onrender.com/api/create_Task", {
       //   method: "POST",
       //   headers: {
@@ -42,6 +43,15 @@ const response = await fetch("https://taskmanagement-x509.onrender.com/api/creat
   },
   body: JSON.stringify(validatedData),
 });
+=======
+      const response = await fetch("https://taskmanagement-x509.onrender.com/api/create_task", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(validatedData),
+      });
+>>>>>>> 1f3f82882fa219cd9a71e45ff03b1a644c50f00b
 
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
