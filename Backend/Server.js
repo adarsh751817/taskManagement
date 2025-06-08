@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./db/taskDb')
 const cors = require('cors')
-
+const authrouter = require('./Router/authrouter')
 const router = require('./Router/taskRouter')
 
 
@@ -14,7 +14,6 @@ dotenv.config();
 connectDB();
 
 const FRONTEND_URL = 'https://taskmanagement-1-vlq0.onrender.com';
-
 app.use(cors({
   origin: FRONTEND_URL,  
   credentials: true      
@@ -23,6 +22,8 @@ app.use(cors({
 const PORT = process.env.PORT || 8080;
 
 app.use('/api', router);
+app.use('/api/auth', authrouter);
+
 
 
 app.listen(PORT, () => {

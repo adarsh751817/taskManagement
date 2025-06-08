@@ -1,4 +1,4 @@
-@import "tailwindcss";
+ /* @import "tailwindcss";
 
 
 :root {
@@ -7,8 +7,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgb(198, 200, 203);
+  background-image: none;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,4 +26,62 @@
   outline: none;
   font-size: 1.2rem;
   font-weight: 600;
+} */
+
+
+
+
+
+
+
+@import "tailwindcss";
+
+/* General App Styling */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(95, 93, 93, 0.87);
+  background-color: transparent;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Full-Screen Background */
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.4s ease-in-out;
+}
+
+/* Light Mode Background */
+body.light {
+  background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1950&q=80');
+}
+
+/* Dark Mode Background */
+body.dark {
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80');
+}
+
+/* Input Field Styling */
+.tittle {
+  height: 40px;
+  width: 360px;
+  background-color: rgb(89, 89, 89);
+  border: 2px solid black;
+  color: black;
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+
